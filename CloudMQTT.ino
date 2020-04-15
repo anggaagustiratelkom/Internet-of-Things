@@ -9,14 +9,14 @@ float rawvalue = 0;
 float milivolt = 0;
 float celcius = 0;
 
-const char* ssid = "Rumah Mamah"; //ssid network
-const char* password = "bengbeng"; //password network
+const char* ssid = "......."; //ssid network
+const char* password = "......."; //password network
 
-const char* mqtt_server = "m12.cloudmqtt.com"; //server cloud
-int port = 10668; //port cloud network
+const char* mqtt_server = "......."; //server cloud
+int port = ......; //port cloud network
 
-const char *mqtt_user = "jzdgxkrk"; //username cloud
-const char *mqtt_pass = "8oJUquTPzj0X"; //password cloud
+const char *mqtt_user = "......"; //username cloud
+const char *mqtt_pass = "......"; //password cloud
 
 WiFiClient espClient;
 PubSubClient client(espClient);
