@@ -9,14 +9,14 @@ float rawvalue = 0;
 float milivolt = 0;
 float celcius = 0;
 
-const char* ssid = "...."; //ssid network
-const char* password = "..."; //password network
+const char* ssid = "Rumah Mamah"; //ssid network
+const char* password = "bengbeng"; //password network
 
-const char* mqtt_server = "..."; //server cloud
-int port = .....; //port cloud network
+const char* mqtt_server = "m12.cloudmqtt.com"; //server cloud
+int port = 10668; //port cloud network
 
-const char *mqtt_user = "...."; //username cloud
-const char *mqtt_pass = "...."; //password cloud
+const char *mqtt_user = "jzdgxkrk"; //username cloud
+const char *mqtt_pass = "8oJUquTPzj0X"; //password cloud
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -45,19 +45,20 @@ void setup_wifi() {
 }
 
 void callback(char* topic, byte* payload, unsigned int length) {
-  String messageTemp;
+  String messageTemp1;
+  String messageTemp2;
   Serial.print("Message arrived [");
   Serial.print(topic);
   Serial.print("] ");
   for (int i = 0; i < length; i++) {
     Serial.print((char)payload[i]);
-    messageTemp = (char)payload[i];
+    messageTemp1 = (char)payload[i];
   }
-  if(messageTemp == "1"){
-    digitalWrite(...., HIGH); //topic mqtt out
+  if(messageTemp1 == "1"){
+    digitalWrite(lamp, HIGH); //topic mqtt out
     Serial.print("On");
   }
-  else if(messageTemp == "0"){
+  else if(messageTemp1 == "0"){
     digitalWrite(lamp, LOW);//topic mqtt out
     Serial.print("Off");
   }
@@ -98,6 +99,7 @@ void setup() {
 }
  
 void loop() {
+ 
   if (!client.connected()) {
     reconnect();
   }
